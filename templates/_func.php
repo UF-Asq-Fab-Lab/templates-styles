@@ -99,9 +99,9 @@ function renderModulesControls(){
 		$uploadPageUrl = wire('pages')->get(wire('modules')->getModuleConfigData("Uploader")['uploader_page_id'])->httpUrl;
 		$markup .= "<a href='{$uploadPageUrl}' class='button button-primary'><i class='fa fa-upload'></i> Upload</a>";
 	}
-	if(wire('modules')->isInstalled("ProcessScheduler")) {
-		$schedulerPageUrl = wire('pages')->get(wire('modules')->getModuleConfigData("ProcessScheduler")['scheduler_page']);
-		$markup .= "<a href='{$uploadPageUrl}' class='button button-primary'><i class='fa fa-calendar'></i> Schedule</a>";
+	if(wire('modules')->isInstalled("Scheduler")) {
+		$schedulerPageUrl = wire('pages')->get(wire('modules')->getModuleConfigData("Scheduler")['scheduler_page_id'])->httpUrl;
+		$markup .= "<a href='{$schedulerPageUrl}' class='button button-primary'><i class='fa fa-calendar'></i> Schedule</a>";
 	}
 	$markup .= "</div>";
 	return $markup;
