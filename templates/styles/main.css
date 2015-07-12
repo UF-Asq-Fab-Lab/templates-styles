@@ -1,0 +1,295 @@
+/*A² Fab Lab Main Custom Styles -- Built on top of skeleton.css (http://getskeleton.com/)*/
+
+body{
+  font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-weight: 400;
+}
+
+h1,h2,h3,h4,h5{
+	font-family: "Quicksand", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 300;
+}
+
+a {
+  color: #BABD61;
+	text-decoration: none;
+}
+a:hover {
+  color: #E7EB79; }
+
+.button.button-primary,
+button.button-primary,
+input[type="submit"].button-primary,
+input[type="reset"].button-primary,
+input[type="button"].button-primary{
+  color: #FFF;
+  background-color: #e7eb79;
+  border-color: #e7eb79;
+}
+
+.button.button-primary:hover,
+button.button-primary:hover,
+input[type="submit"].button-primary:hover,
+input[type="reset"].button-primary:hover,
+input[type="button"].button-primary:hover,
+.button.button-primary:focus,
+button.button-primary:focus,
+input[type="submit"].button-primary:focus,
+input[type="reset"].button-primary:focus,
+input[type="button"].button-primary:focus{
+  color: #FFF;
+  background-color: #f4f880;
+  border-color: #f4f880;
+}
+
+.navbar{
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  display: block;
+  width: 100%;
+  height: 6.5rem;
+  background: #231f20;
+  z-index: 1;
+}
+
+.navbar-item{
+  display: block;
+  width: 100%;
+  margin-bottom: 0px;
+  position: relative;
+  border-bottom: 1px solid #4a4244;
+  float: right;
+  background: #231f20;
+}
+
+.navbar-list{
+  display: none;
+}
+
+.mobile-navbar-list{
+  position: fixed;
+  top: -50%;
+  left: 0px;
+  width: 100%;
+  transition: top .5s;
+  z-index: -1;
+}
+
+.mobile-navbar-list.down {
+  position: fixed;
+  top: 4.36em;
+  left: 0px;
+  width: 100%;
+  transition: top .5s;
+  z-index: -1;
+}
+
+.navbar-link{
+	position: relative;
+	width:  80%;
+	max-width: 960px;
+	margin: auto 0;
+  text-decoration: none;
+  line-height: 6.5rem;
+  color: #FFF;
+	box-sizing: border-box;
+}
+
+.navbar-link:hover{
+  color: #e7eb79;
+}
+
+.navbar-toggle{
+  display: inline;
+  float:right;
+  font-size: 2em;
+  color: #FFF;
+  cursor: pointer;
+}
+
+#modules-control a {
+	margin-left: 0px;
+}
+
+@media (min-width: 960px) {
+
+  .navbar-toggle{
+    display: none;
+  }
+
+  .spacer{
+    width: 100%;
+    height: 7.5rem;
+    display: block;
+  }
+
+  .navbar{
+    width: 100%;
+    height: 6.5rem;
+    background: #231f20;
+    z-index: 1;
+  }
+
+  .navbar-list{
+    display: inline-block;
+    list-style: outside none none;
+    margin-bottom: 0px;
+    margin-top: 0rem;
+    float: right;
+    transition: margin-top 0s;
+  }
+
+  .mobile-navbar-list{
+    display: none;
+  }
+
+	.navbar-link{
+		width: auto;
+		max-width: none;
+		margin-left: 55px;
+	  text-decoration: none;
+	  line-height: 6.5rem;
+	  color: #FFF;
+	}
+
+  .navbar-item{
+    width: auto;
+    display: inline;
+    position: relative;
+    float: right;
+    margin-bottom: 0px;
+    border-bottom: none;
+  }
+
+	#logo-col{
+	  z-index: 1;
+	  background: #231f20;
+		width: 22%!important;
+		height: 6.5rem;
+	}
+
+	#modules-control a {
+		margin-left: 1rem;
+	}
+
+	#modules-control a:first-child{
+		margin-left: 0px;
+	}
+
+}
+
+#logo-link{
+line-height: 0rem;
+}
+
+#logo-col{
+  z-index: 1;
+  background: #231f20;
+	width: 100%;
+	height: 6.5rem;
+}
+
+#logo-img{
+ height: 6.5rem;
+}
+
+.section {
+  padding: 8rem 0 7rem;
+  text-align: center;
+}
+
+.section-heading,
+.section-description {
+  margin-bottom: 1.2rem;
+}
+
+.demo-video{
+padding: 0;
+display: block;
+/*min-height: 80%;*/
+min-width: 100%;
+width: auto;
+height: auto;
+margin-bottom: 30em;
+}
+
+video#bgvid {
+position: absolute;
+left: 0px;
+top: 6.5rem;
+height: auto;
+width: 100%;
+z-index: -100;
+background-size: cover;
+}
+
+@media (min-width: 960px) {
+	.demo-video{
+		padding: 0;
+		display: block;
+		/*min-height: 80%;*/
+		min-width: 100%;
+		width: auto;
+		height: auto;
+		margin-bottom: 50em;
+	}
+
+	video#bgvid {
+		position: absolute;
+		left: 0px;
+		top: 6.5rem;
+		min-width: 100%;
+		min-height: 25%;
+		height: auto;
+		width: auto;
+		z-index: -100;
+		background-size: cover;
+	}
+}
+
+#main {
+	background-color: #FFF;
+	padding-top: 8.5rem;
+	z-index: 0;
+	position: relative;
+}
+
+#content{
+	z-index: 2;
+}
+
+#title{
+	position: relative;
+	z-index: 2;
+}
+
+#title-text{
+	position: relative;
+	z-index: 3;
+}
+
+#footer-container{
+	background-color: #FFF;
+	text-align: center;
+	padding-top: 3.5rem;
+	padding-bottom: 3.5rem;
+	margin-top: 3.5rem;
+	border-top: 1px solid #AAA;
+}
+
+.nav{
+	list-style-type: none;
+}
+
+svg{
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	fill: rgba(0, 0, 0, 0.0);
+	z-index: 0;
+}
+
+svg g path {
+	stroke: #F8FAB2;
+}
