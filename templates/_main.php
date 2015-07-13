@@ -42,6 +42,8 @@
 	<link rel="stylesheet" type="text/css" href="<?php echo $config->urls->templates?>styles/normalize.css" />
 	<link rel="stylesheet" type="text/css" href="<?php echo $config->urls->templates?>styles/skeleton.css" />
 	<link rel="stylesheet" type="text/css" href="<?php echo $config->urls->templates?>styles/main.css" />
+	<script type="text/javascript" src="<?php echo $config->urls->templates ?>scripts/d3/d3.min.js"></script>
+	<script type="text/javascript" src="<?php echo $config->urls->templates ?>scripts/jquery/dist/jquery.min.js"></script>
 </head>
 <body class="<?php if($sidebar) echo "has-sidebar "; ?>">
 
@@ -119,8 +121,6 @@
 	</footer>
 
 </body>
-<script type="text/javascript" src="<?php echo $config->urls->templates ?>scripts/d3/d3.min.js"></script>
-<script type="text/javascript" src="<?php echo $config->urls->templates ?>scripts/jquery/dist/jquery.min.js"></script>
 <script type="text/javascript" src="<?php echo $config->urls->templates ?>scripts/main.js"></script>
 
 </html>
