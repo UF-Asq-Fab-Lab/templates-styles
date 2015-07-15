@@ -23,7 +23,12 @@
 // default values for each of them.
 $title = $page->get('headline|title'); // headline if available, otherwise title
 $content = $page->body;
-$sidebar = $page->sidebar;
+$sidebar = null;
+if(strpos($page->sidebar, '[no-sidebar]') !== false){
+  $sidebar = str_replace("[no-sidebar]", "", $sidebar);
+} else {
+  $sidebar = "<p>[account]</p><p>[controls]</p><p>[nav]</p>".$page->sidebar;
+}
 $precontent = null;
 
 
@@ -42,6 +47,19 @@ if(strpos($sidebar, "[controls]") !== false){
 if(strpos($sidebar, "[account]") !== false){
   $sidebar = str_replace("[account]", renderAccount(), $sidebar);
 }
+
+if(strpos($sidebar, "[nav]") !== false){
+  // if the rootParent (section) page has more than 1 child, then render
+  // section navigation in the sidebar
+  if($page->rootParent->hasChildren > 0 && $page->parent->id) {
+    $sidebar = str_replace("[nav]", renderNav($page->rootParent, 3), $sidebar);
+  } else {
+    $sidebar = str_replace("[nav]", "", $sidebar);
+  }
+}
+
+
+
 // What happens after this?
 // ------------------------
 // 1. ProcessWire loads your page's template file (i.e. basic-page.php).

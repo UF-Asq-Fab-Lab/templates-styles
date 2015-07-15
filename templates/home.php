@@ -27,5 +27,5 @@ if(count($page->images)) {
 	// output the image at the top of the sidebar...
 	$imageMarkup = "<img class='u-max-full-width' src='$image->url' alt='$image->description' />";
 	// ...and append sidebar text under the image
-	$sidebar = $imageMarkup.$sidebar;
+	$sidebar = $sidebar.$imageMarkup;
 }

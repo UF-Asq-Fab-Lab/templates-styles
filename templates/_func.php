@@ -37,7 +37,7 @@ function renderNav($items, $maxDepth = 0, $fieldNames = '', $class = 'nav') {
 
 		// markup for the list item...
 		// if current item is the same as the page being viewed, add a "current" class to it
-		$out .= $item->id == wire('page')->id ? "<li class='current'><i class='fa fa-angle-right'></i> " : "<li><i class='fa fa-angle-double-right'></i> ";
+		$out .= $item->id == wire('page')->id ? "<li class='current'><i class='fa fa-angle-double-right'></i> " : "<li><i class='fa fa-angle-right'></i> ";
 
 		// markup for the link
 		$out .= "<a href='$item->url'>$item->title</a>";
@@ -74,6 +74,7 @@ function renderAccount(){
 		$registerPage = wire('pages')->get($luData["register_page_id"]);
 		$loginPage = wire('pages')->get($luData["login_page_id"]);
 		$accountPage = wire('pages')->get($luData["account_page_id"]);
+		$resetPage = wire('pages')->get($luData["reset_page_id"]);
 		$username = " " . wire('user')->name;
 		$pageurl = wire('page')->httpUrl;
 		$markup .= "<div id='account-control'>";
@@ -85,7 +86,8 @@ function renderAccount(){
 		} else {
 			$markup .= "<p id='login-register'><a id='login-link' href='{$loginPage->url}'>";
 			$markup .= "<i class='fa fa-sign-in'></i>Log-In</a> | ";
-			$markup .= "<a id='register-link' href='{$registerPage->url}'>Register</a></p>";
+			$markup .= "<a id='register-link' href='{$registerPage->url}'>Register</a>";
+			$markup .= " | <a id='forgot-password-link' href='{$resetPage->url}'>Forgot Password?</a></p>";
 		}
 		$markup .= "</div>";
 	}
@@ -96,11 +98,13 @@ function renderModulesControls(){
 	$markup = "";
 	$markup .= "<div id='modules-control'>";
 	if(wire('modules')->isInstalled("Uploader")) {
-		$uploadPageUrl = wire('pages')->get(wire('modules')->getModuleConfigData("Uploader")['uploader_page_id'])->httpUrl;
+		$uploaderConfig = wire('modules')->getModuleConfigData("Uploader");
+		$uploadPageUrl = wire('pages')->get($uploaderConfig['uploader_page_id'])->httpUrl;
 		$markup .= "<a href='{$uploadPageUrl}' class='button button-primary'><i class='fa fa-upload'></i> Upload</a>";
 	}
 	if(wire('modules')->isInstalled("Scheduler")) {
-		$schedulerPageUrl = wire('pages')->get(wire('modules')->getModuleConfigData("Scheduler")['scheduler_page_id'])->httpUrl;
+		$schedulerConfig = wire('modules')->getModuleConfigData("Scheduler");
+		$schedulerPageUrl = wire('pages')->get($schedulerConfig['scheduler_page_id'])->httpUrl;
 		$markup .= "<a href='{$schedulerPageUrl}' class='button button-primary'><i class='fa fa-calendar'></i> Schedule</a>";
 	}
 	$markup .= "</div>";
