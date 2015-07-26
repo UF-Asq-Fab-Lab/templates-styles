@@ -122,5 +122,6 @@
 
 </body>
 <script type="text/javascript" src="<?php echo $config->urls->templates ?>scripts/main.js"></script>
+<script type="text/javascript" src="<?php echo $config->urls->templates ?>scripts/faq.js"></script>
 
 </html>
