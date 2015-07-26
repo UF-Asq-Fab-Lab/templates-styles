@@ -318,3 +318,26 @@ svg g path {
 .faq-question:hover{
   background-color: #f4f880;
 }
+
+.contact-form-field {
+  display: inline;
+  position: relative;
+  width: 49%;
+  height: auto;
+}
+
+.contact-form-field label {
+  position: relative;
+  display: block;
+  width: 100%;
+}
+
+#contact-subject {
+  width: 100%;
+}
+
+#contact-body {
+  width: 100%;
+  height: auto;
+  resize: vertical;
+}
