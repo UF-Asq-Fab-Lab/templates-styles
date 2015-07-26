@@ -308,6 +308,8 @@ svg g path {
   font-weight: bold;
   cursor: pointer;
   border-bottom: 1px solid #fff;
+  padding-top: .5em;
+  padding-bottom: .5em;
 }
 
 .faq-question p {
