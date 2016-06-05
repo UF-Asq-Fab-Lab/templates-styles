@@ -11,10 +11,24 @@
  *
  */
 
+ /**
+ * Given a path to a file, render that file to a string.
+ *
+ * @param string $file_to_render Path to the file to render.
+ * @return string
+ *
+ */
+function include_render ( $file, $vars=null ) {
+  if (is_array($vars) && !empty($vars)) {
+    extract($vars);
+  }
+  ob_start();
+	include $file;
+	return ob_get_clean();
+}
+
 /**
  * Given a group of pages, render a <ul> navigation
- *
- * This is here to demonstrate an example of a shared function and usage is completely optional.
  *
  * @param array|PageArray $items
  * @param int $maxDepth How many levels of navigation below current should it go?
@@ -65,48 +79,4 @@ function renderNav($items, $maxDepth = 0, $fieldNames = '', $class = 'nav') {
 
 	// return the markup we generated above
 	return $out;
-}
-
-function renderAccount(){
-	$markup = "";
-	if(wire('modules')->isInstalled("LabUser")) {
-		$luData = wire('modules')->getModuleConfigData("LabUser");
-		$registerPage = wire('pages')->get($luData["register_page_id"]);
-		$loginPage = wire('pages')->get($luData["login_page_id"]);
-		$accountPage = wire('pages')->get($luData["account_page_id"]);
-		$resetPage = wire('pages')->get($luData["reset_page_id"]);
-		$username = " " . wire('user')->name;
-		$pageurl = wire('page')->httpUrl;
-		$markup .= "<div id='account-control'>";
-    if(wire('user')->isLoggedIn()){
-			$markup .= "<p id='account-name'><i class='fa fa-user'></i>{$username} | ";
-			$markup .= "<a id='account-link' href='{$accountPage->httpUrl}'>Account</a> | ";
-			$markup .= "<a id='logout-link' href='{$pageurl}?logout=1'>";
-			$markup .= "<i class='fa fa-sign-out'></i>Log-out</a></p>";
-		} else {
-			$markup .= "<p id='login-register'><a id='login-link' href='{$loginPage->url}'>";
-			$markup .= "<i class='fa fa-sign-in'></i>Log-In</a> | ";
-			$markup .= "<a id='register-link' href='{$registerPage->url}'>Register</a>";
-			$markup .= " | <a id='forgot-password-link' href='{$resetPage->url}'>Forgot Password?</a></p>";
-		}
-		$markup .= "</div>";
-	}
-	return $markup;
-}
-
-function renderModulesControls(){
-	$markup = "";
-	$markup .= "<div id='modules-control'>";
-	if(wire('modules')->isInstalled("Uploader")) {
-		$uploaderConfig = wire('modules')->getModuleConfigData("Uploader");
-		$uploadPageUrl = wire('pages')->get($uploaderConfig['uploader_page_id'])->httpUrl;
-		$markup .= "<a href='{$uploadPageUrl}' class='button button-primary'><i class='fa fa-upload'></i> Upload</a>";
-	}
-	if(wire('modules')->isInstalled("Scheduler")) {
-		$schedulerConfig = wire('modules')->getModuleConfigData("Scheduler");
-		$schedulerPageUrl = wire('pages')->get($schedulerConfig['scheduler_page_id'])->httpUrl;
-		$markup .= "<a href='{$schedulerPageUrl}' class='button button-primary'><i class='fa fa-calendar'></i> Schedule</a>";
-	}
-	$markup .= "</div>";
-	return $markup;
 }

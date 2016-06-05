@@ -22,14 +22,10 @@
 // Variables for regions we will populate in _main.php. Here we also assign
 // default values for each of them.
 $title = $page->get('headline|title'); // headline if available, otherwise title
-$content = $page->body;
-$sidebar = null;
-if(strpos($page->sidebar, '[no-sidebar]') !== false){
-  $sidebar = str_replace("[no-sidebar]", "", $sidebar);
-} else {
-  $sidebar = "<p>[account]</p><p>[controls]</p><p>[nav]</p>".$page->sidebar;
-}
 $precontent = null;
+$content = $page->body;
+$sidebar = $page->get('sidebar');
+
 
 
 // We refer to our homepage a few times in our site, so we preload a copy
@@ -39,14 +35,6 @@ $homepage = $pages->get('/');
 
 // Include shared functions (if any)
 include_once("./_func.php");
-
-if(strpos($sidebar, "[controls]") !== false){
-  $sidebar = str_replace("[controls]", renderModulesControls(), $sidebar);
-}
-
-if(strpos($sidebar, "[account]") !== false){
-  $sidebar = str_replace("[account]", renderAccount(), $sidebar);
-}
 
 if(strpos($sidebar, "[nav]") !== false){
   // if the rootParent (section) page has more than 1 child, then render

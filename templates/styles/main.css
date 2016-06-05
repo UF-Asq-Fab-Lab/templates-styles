@@ -105,6 +105,7 @@ input[type="button"].button-primary:focus{
   float:right;
   font-size: 2em;
   color: #FFF;
+  line-height: 65px;
   cursor: pointer;
 }
 
@@ -204,48 +205,72 @@ line-height: 0rem;
   margin-bottom: 1.2rem;
 }
 
-.demo-video{
-padding: 0;
-display: block;
-/*min-height: 80%;*/
-min-width: 100%;
-width: auto;
-height: auto;
-margin-bottom: 30em;
+.precontent-video{
+position: relative;
+width: 100%;
+overflow: hidden;
+min-height: 500px;
 }
 
 video#bgvid {
+left: 50%;
+transform: translateX(-50%);
 position: absolute;
-left: 0px;
-top: 6.5rem;
-height: auto;
-width: 100%;
-z-index: -100;
+top: -25%;
+z-index: -101;
+height: 1080px;
+background-position: center;
 background-size: cover;
 }
 
-@media (min-width: 960px) {
-	.demo-video{
-		padding: 0;
-		display: block;
-		/*min-height: 80%;*/
-		min-width: 100%;
-		width: auto;
-		height: auto;
-		margin-bottom: 50em;
-	}
+.precontent-slideshow {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  min-height: 500px;
+}
 
-	video#bgvid {
-		position: absolute;
-		left: 0px;
-		top: 6.5rem;
-		min-width: 100%;
-		min-height: 25%;
-		height: auto;
-		width: auto;
-		z-index: -100;
-		background-size: cover;
-	}
+.precontent-slideshow-image {
+  position: absolute;
+  top: -25%;
+  width: 100%;
+  z-index: -101;
+  height: 1080px;
+  background-position: center;
+  background-size: cover;
+}
+
+.precontent-slideshow-current {
+  animation-duration: 0.5s;
+  z-index: -100;
+  animation-fill-mode: forwards;
+  animation-name: slidein;
+}
+
+.precontent-slideshow-previous {
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+  animation-name: slideout;
+}
+
+@keyframes slidein {
+  from {
+    right: -100%;
+  }
+
+  to {
+    right: 0%;
+  }
+}
+
+@keyframes slideout {
+  from {
+    left: 0%;
+  }
+
+  to {
+    left: -100%;
+  }
 }
 
 #main {

@@ -23,33 +23,11 @@
       } else {
         $message .= "<p class='message'>Sending message failed! Sorry, please try again later.</p>";
       }
-
     }
     return $message;
   }
 
-  function renderContactForm(){
-    $out = "<form method='post' action='./' enctype='multipart/formdata'>";
-    $out .= "<div class='row'>";
-    $out .= "<div class='one-half column'><label for='name'>Name</label>";
-    $out .= "<input type='text' id='name' name='name'></div>";
-
-    $out .= "<div class='one-half column'><label for='email'>Email</label>";
-    $out .= "<input type='email' id='email' name='email'></div>";
-    $out .= "</div>";
-    $out .= "<div class='contact-form-field'><label for='subject'>Subject</label>";
-    $out .= "<input type='text' id='contact-subject' name='subject'></div>";
-
-    $out .= "<div class='contact-form-field'><label for='body'>Message</label>";
-    $out .= "<textarea rows='10' id='contact-body' name='body'></textarea></div>";
-
-    $out .= "<button class='button-primary' type='submit' id='contact-submit' name='submit' value='Submit'><i class='fa fa-paper-plane-o'></i> Submit</button>";
-
-    $out .= "</form>";
-    return $out;
-  }
-
   $message = handleContactForm(wire('input'), wire('sanitizer'), wire('page'));
-  $form = renderContactForm();
+  $form = include_render('./includes/contact-form.inc');
   $content = $message.$page->body.$form;
 ?>

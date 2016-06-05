@@ -2,6 +2,25 @@ $(".navbar-toggle").click(function(){
   $(".mobile-navbar-list").toggleClass("down");
 });
 
+// precontent slideshow
+var images = $(".precontent-slideshow-image");
+images.addClass("precontent-slideshow-previous");
+var current = images.first().removeClass("precontent-slideshow-previous").addClass("precontent-slideshow-current");
+function swapImages () {
+  current.removeClass("precontent-slideshow-current");
+  current.addClass("precontent-slideshow-previous");
+  if(current.is(".precontent-slideshow-image:last")){
+    current = images.first();
+  } else {
+    current = current.next();
+  }
+  current.removeClass("precontent-slideshow-previous");
+  current.addClass("precontent-slideshow-current");
+  window.setTimeout(swapImages, 5000);
+}
+
+window.setTimeout(swapImages, 5000);
+
 // Heavily based on Bostock: http://bl.ocks.org/mbostock/4341156
 
 var MeshGen = function(target, density){
@@ -27,7 +46,9 @@ var MeshGen = function(target, density){
   });
 
   function meshify() {
-    path = path.data(d3.geom.delaunay(vertices).map(function(d) { return "M" + d.join("L") + "Z"; }), String);
+    path = path.data(d3.geom.delaunay(vertices).map(function(d) {
+      return "M" + d.join("L") + "Z";
+    }), String);
     path.exit().remove();
     path.enter().append("path")
       .attr("d", String);

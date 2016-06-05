@@ -29,98 +29,45 @@
  * See the README.txt file for more information.
  *
  */
-?><!DOCTYPE html>
+?>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title><?php echo $title; ?></title>
-	<meta name="description" content="<?php echo $page->summary; ?>" />
-	<link href='http://fonts.googleapis.com/css?family=Quicksand:400,300,700' rel='stylesheet' type='text/css'>
-	<link href='http://fonts.googleapis.com/css?family=Raleway:400,700' rel='stylesheet' type='text/css'>
-	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-	<link rel="stylesheet" type="text/css" href="<?php echo $config->urls->templates?>styles/normalize.css" />
-	<link rel="stylesheet" type="text/css" href="<?php echo $config->urls->templates?>styles/skeleton.css" />
-	<link rel="stylesheet" type="text/css" href="<?php echo $config->urls->templates?>styles/main.css" />
-	<script type="text/javascript" src="<?php echo $config->urls->templates ?>scripts/d3/d3.min.js"></script>
-	<script type="text/javascript" src="<?php echo $config->urls->templates ?>scripts/jquery/dist/jquery.min.js"></script>
-</head>
-<body class="<?php if($sidebar) echo "has-sidebar "; ?>">
+
+<?php include_once('./_head.php') ?>
+
+<body>
 
 	<!-- top navigation -->
-		<div class="container">
-    <nav class="navbar">
-      <div class="container">
-        <div id="logo-col" class="three columns">
-					<a href="<?php echo $homepage->url ?>" id="logo-link"><img id="logo-img" src="<?php echo $homepage->logo->httpUrl ?>"></img></a>
-          <div class="navbar-toggle"><i class="fa fa-bars"></i></div>
-        </div>
-        <ul class="mobile-navbar-list">
-					<?php
-					foreach($homepage->children as $item) {
-						if($item->id == $page->rootParent->id) echo "<li class='navbar-item current'>";
-							else echo "<li class='navbar-item'>";
-						echo "<div class='container'><a class='navbar-link' href='$item->url'>$item->title</a></div></li>";
-					}
-					?>
-        </ul>
-      <div class="nine columns">
-        <ul class="navbar-list">
-					<?php
-					// top navigation consists of homepage and its visible children
-					foreach($homepage->children as $item) {
-						if($item->id == $page->rootParent->id) echo "<li class='navbar-item current'>";
-							else echo "<li class='navbar-item'>";
-						echo "<a class='navbar-link' href='$item->url'>$item->title</a></li>";
-					}
-					?>
-        </ul>
-      </div>
-      </div>
-    </nav>
-    </div>
+	<?php include_once('./_nav.php'); ?>
 
 		<!-- pre-content (big-screen slideshow or video, if present) -->
 
-<?php if($precontent) echo $precontent; ?>
+	<?php if($precontent) echo $precontent; ?>
 
 	<div id='main'>
-
 		<!-- main content -->
 		<div id='content' class="container">
 			<div class="row">
-				<?php if($sidebar){
-					echo "<div class='two-thirds column'>";
+			<?php
+				if($sidebar){
+					include_once('./_two-column.php');
 				} else {
-					echo "<div class='twelve columns'>";
-				}?>
-					<div id="title"><div id="title-text"><h1><?php echo $title; ?></h1></div></div>
-				<?php echo $content; ?>
-			</div>
-			<div class="one-third column">
-				<!-- sidebar content -->
-				<?php if($sidebar): ?>
-				<div id='sidebar'>
-					<?php echo $sidebar; ?>
-				</div>
-				<?php endif; ?>
-			</div>
+					include_once('./_one-column.php');
+				}
+			?>
 			</div>
 		</div>
-
 	</div>
 
 	<!-- footer -->
 	<footer id='footer'>
 		<div id='footer-container' class="container">
-		<p>"A²" comes from the collaboration of the two schools which formed the lab,
-			the College of Design, Construction and Planning's School of Architecture and
-			the College of Fine Art's School of Art and Art History. However, as of Fall 2012,
-			the lab is open to the ALL at the University of Florida!</p>
-	</div>
+
+		</div>
 	</footer>
 
 </body>
+
 <script type="text/javascript" src="<?php echo $config->urls->templates ?>scripts/main.js"></script>
 <script type="text/javascript" src="<?php echo $config->urls->templates ?>scripts/faq.js"></script>
 
