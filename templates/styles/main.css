@@ -42,6 +42,34 @@ input[type="button"].button-primary:focus{
   border-color: #f4f880;
 }
 
+.button.button-primary:disabled,
+button.button-primary:disabled,
+input[type="submit"].button-primary:disabled,
+input[type="reset"].button-primary:disabled,
+input[type="button"].button-primary:disabled{
+  color: #ccc;
+  background-color: #7f7f7f;
+  border-color: #7f7f7f;
+}
+
+.button-disabled {
+  color:#FFF;
+  background-color: #7f7f7f;
+  border-color: #7f7f7f;
+}
+
+.button-disabled:hover {
+  color:#FFF;
+  background-color: #7f7f7f;
+  border-color: #7f7f7f;
+}
+
+.button-disabled:focus {
+  color:#FFF;
+  background-color: #7f7f7f;
+  border-color: #7f7f7f;
+}
+
 .navbar{
   position: fixed;
   top: 0px;

@@ -10,14 +10,14 @@
 	<link rel="stylesheet" type="text/css" href="<?php echo $config->urls->templates?>styles/skeleton.css" />
 	<link rel="stylesheet" type="text/css" href="<?php echo $config->urls->templates?>styles/main.css" />
 	<?php
-		foreach ($config->styles->unique as $file) {
+		foreach ($config->styles->unique() as $file) {
 			echo "<link rel='stylesheet' type='text/css' href='$file'/>";
 		}
 	?>
 	<script type="text/javascript" src="<?php echo $config->urls->templates ?>scripts/d3/d3.min.js"></script>
 	<script type="text/javascript" src="<?php echo $config->urls->templates ?>scripts/jquery/dist/jquery.min.js"></script>
 	<?php
-		foreach ($config->styles->unique as $file) {
+		foreach ($config->scripts->unique() as $file) {
 			echo "<script type='text/javascript' src='$file'></script>";
 		}
 	?>
