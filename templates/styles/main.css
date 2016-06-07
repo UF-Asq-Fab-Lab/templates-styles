@@ -23,8 +23,8 @@ input[type="submit"].button-primary,
 input[type="reset"].button-primary,
 input[type="button"].button-primary{
   color: #FFF;
-  background-color: #e7eb79;
-  border-color: #e7eb79;
+  background-color: #CCD22A;
+  border-color: #CCD22A;
 }
 
 .button.button-primary:hover,
@@ -38,8 +38,8 @@ input[type="submit"].button-primary:focus,
 input[type="reset"].button-primary:focus,
 input[type="button"].button-primary:focus{
   color: #FFF;
-  background-color: #f4f880;
-  border-color: #f4f880;
+  background-color: #E7EB79;
+  border-color: #E7EB79;
 }
 
 .button.button-primary:disabled,
@@ -356,7 +356,7 @@ svg g path {
 }
 
 .faq-question{
-  background-color: #e7eb79;
+  background-color: #CCD22A;
   color: #fff;
   font-weight: bold;
   cursor: pointer;
@@ -371,7 +371,7 @@ svg g path {
 }
 
 .faq-question:hover{
-  background-color: #f4f880;
+  background-color: #E7EB79;
 }
 
 .contact-form-field {
